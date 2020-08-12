@@ -1,0 +1,23 @@
+{
+  "name": "@cgignite/ignite-auth",
+  "node-red": {
+    "nodes": {
+      "auth": "lib/auth.js"
+    }
+  },
+  "version": "1.0.1",
+  "description": "Auth node allows you to integrate security withing your Ignite APIs and apps",
+  "scripts": {},
+  "author": {
+    "name": "Ravi Kant Sharma",
+    "email": "ravikantsharma2169@gmail.com"
+  },
+  "keywords": [
+    "CG",
+    "Ignite",
+    "Auth"
+  ],
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
+}
