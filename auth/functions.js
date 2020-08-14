@@ -23,7 +23,7 @@ exports.BasicAuth = async (info) => {
 // returns the JWT token
 exports.GenerateToken = async (data, tokenSecret, config) => {
   try {
-    return await jwt.sign(data, tokenSecret, { expiresIn: config.expiresIn, algorithm: config.algorithm })
+    return await jwt.sign(data, tokenSecret, config)
   }
   catch (err) {
     return err;
