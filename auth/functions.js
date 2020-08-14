@@ -1,3 +1,5 @@
+const jwt = require("jsonwebtoken");
+
 // Sets in Key value pair
 exports.BasicAuth = async (info) => {
   try {
@@ -15,5 +17,24 @@ exports.BasicAuth = async (info) => {
     }
   } catch (err) {
     return err;
+  }
+};
+
+// returns the JWT token
+exports.GenerateToken = async (data, tokenSecret, config) => {
+  try {
+    return await jwt.sign(data, tokenSecret, { expiresIn: config.expiresIn, algorithm: config.algorithm })
+  }
+  catch (err) {
+    return err;
+  }
+};
+
+// verifies token and returns data, error if token is invalid
+exports.VerifyToken = async (token, tokenSecret) => {
+  try {
+    return await jwt.verify(token, tokenSecret)
+  } catch (err) {
+    return err
   }
 };

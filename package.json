@@ -5,7 +5,7 @@
       "auth": "lib/auth.js"
     }
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Auth node allows you to integrate security withing your Ignite APIs and apps",
   "scripts": {},
   "author": {
@@ -15,9 +15,14 @@
   "keywords": [
     "CG",
     "Ignite",
-    "Auth"
+    "Auth",
+    "Basic Authentication",
+    "Bearer Authentication",
+    "jwt"
   ],
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
+  },
   "devDependencies": {}
 }
