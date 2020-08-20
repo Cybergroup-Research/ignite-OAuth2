@@ -44,9 +44,11 @@ exports.VerifyToken = async (token, tokenSecret) => {
   try {
     token = token.replace("Bearer ", "");
     await jwt.verify(token, tokenSecret)
+    var decoded = await jwt.decode(token);
     return result = {
       Status: "OK",
-      StatusCode: 200
+      StatusCode: 200,
+      payload : decoded
     }
   } catch (err) {
       return result = {

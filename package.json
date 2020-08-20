@@ -6,7 +6,7 @@
       "auth-config": "lib/auth-config.js"
     }
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Auth node allows you to integrate security withing your Ignite APIs and apps",
   "scripts": {},
   "author": {
