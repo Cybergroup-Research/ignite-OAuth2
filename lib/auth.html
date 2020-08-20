@@ -4,34 +4,27 @@
         color: '#3d7e9a',
         defaults: {
             name: { value: "" },
-            authType: { value: "NoAuth" },
-            username: { value: "" },
-            password: { value: "" },
-
-            expiresin: { value: "1d" },
-            tokensecret: { value: "jwtSecret" },
-            algorithm: { value: "HS256" },
-            decodejwt: { value: false }
+            authconfig : { type: "auth-config" },
+            generatejwt : { value: false },
+            outputs: { value: 2}
         },
         inputs: 1,
-        outputs: 1,
+        outputs: 2,
+        outputLabels: ["Authorized", "Unauthorized"],
         icon: 'font-awesome/fa-unlock-alt',
         label: function () {
-            return this.name || this.authType;
+            return this.name;
         },
-        oneditprepare: function () {
-            $("#node-input-authType").on("change", function () {
-                if ($("#node-input-authType").val() === "NoAuth") {
-                    $(".BasicAuthItem").hide();
-                    $(".jwtItem").hide();
-                } else if ($("#node-input-authType").val() === "BasicAuth"){
-                    $(".BasicAuthItem").show();
-                    $(".jwtItem").hide();
-                } else if ($("#node-input-authType").val() === "jwt"){
-                    $(".BasicAuthItem").hide();
-                    $(".jwtItem").show();
-                }
-            });
+        oneditsave : function () {
+            this.generatejwt = $("#node-input-generatejwt").is(':checked');
+            if(this.generatejwt)
+            {
+                $("#node-input-outputs").val(JSON.stringify(1));
+            }
+            else
+            {
+                $("#node-input-outputs").val(JSON.stringify(2));
+            }
         }
     });
 </script>
@@ -42,53 +35,16 @@
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-authType">Auth Type</label>
-        <select type="select" id="node-input-authType">
-            <option value="NoAuth">No Authentication</option>
-            <option value="BasicAuth">Basic Authentication</option>
-            <option value="jwt">JWT</option>
-        </select>
+        <label for="node-input-authconfig">Setting</label>
+        <input type="text" id="node-input-authconfig" placeholder="Setting">
     </div>
-    <div class="form-row BasicAuthItem">
-        <label for="node-input-username">Username</label>
-        <input type="text" id="node-input-username" placeholder="username">
-    </div>
-    <div class="form-row BasicAuthItem" id="">
-        <label for="node-input-password">Password</label>
-        <input type="password" id="node-input-password" placeholder="password">
-    </div>
-    <div class="form-row jwtItem">
-        <label for="node-input-tokensecret">Secret Key</label>
-        <input type="password" id="node-input-tokensecret" placeholder="Secret Key">
-    </div>
-    <div class="form-row jwtItem">
-        <label for="node-input-expiresin">Expires in</label>
-        <input type="text" id="node-input-expiresin" placeholder="expires in">
-    </div>
-    <div class="form-row jwtItem">
-        <label for="node-input-algorithm"><i class="icon-tag"></i><span>Algorithm</span></label>
-        <select type="select" id="node-input-algorithm">
-          <option value="HS256">HS256</option>
-          <option value="HS384">HS384</option>
-          <option value="HS512">HS512</option>
-          <!-- <option value="PS256">PS256</option>
-          <option value="PS384">PS384</option>
-          <option value="PS512">PS512</option>
-          <option value="RS256">RS256</option>
-          <option value="RS384">RS384</option>
-          <option value="RS384">RS512</option>
-          <option value="ES256">ES256</option>
-          <option value="ES384">ES384</option>
-          <option value="ES512">ES512</option> -->
-        </select>
-    </div>
-    <div class="form-row jwtItem">
-        <input type="checkbox" id="node-input-decodejwt" value="true" style="display:inline; width:15px; vertical-align:baseline;">
-        <label for="node-input-decodejwt" style="display:inline;">Check the box to verify a jwt token</label>
+    <div class="form-row">
+        <input type="checkbox" id="node-input-generatejwt" style="display:inline; width:15px; vertical-align:baseline;">
+        <label for="node-input-generatejwt" style="display:inline;">Check the box to generate a jwt token otherwise it will validate the supplied jwt token</label>
+        <input type="hidden" id="node-input-outputs"/>
     </div>
 </script>
 
 <script type="text/html" data-help-name="auth">
     <p>A node that provides security for your Ignite apps</p>
-    <p>The JWT options can be overridden by passing in a msg.jwtconfig object</p>
 </script>
