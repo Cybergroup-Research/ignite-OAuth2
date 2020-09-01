@@ -1,0 +1,41 @@
+<script type="text/javascript">
+    RED.nodes.registerType('oauth2 client', {
+        category: 'security',
+        color: '#3d7e9a',
+        defaults: {
+            name: { value: "" },
+            auth2Config : { type: "oauth2-client-config" },
+            flow: { value: "usercredential"},
+            outputlocation : { value: "payload" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'font-awesome/fa-unlock-alt',
+        label: function () {
+            return this.name || "oauth2 client"
+        },
+    });
+</script>
+
+<script type="text/html" data-template-name="oauth2 client">
+    <div class="form-row">
+        <label for="node-input-name">Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-auth2Config">Config</label>
+        <input type="text" id="node-input-auth2Config" placeholder="auth2Config">
+    </div>
+    <div class="form-row">
+        <label for="node-input-flow">Flow</label>
+        <select type="select" id="node-input-flow" placeholder="flow">
+            <option value="usercredential">User Credential</option>
+            <option value="loginurl">Login Url</option>
+            <option value="gettoken">Get Token</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-outputlocation">Output as</label>
+        <input type="text" id="node-input-outputlocation" placeholder="outputlocation">
+    </div>
+</script>

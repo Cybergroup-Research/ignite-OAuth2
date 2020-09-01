@@ -1,0 +1,32 @@
+<script type="text/javascript">
+    RED.nodes.registerType('active directory', {
+        category: 'security',
+        color: '#3d7e9a',
+        defaults: {
+            name: { value: "" },
+            adConfig : { type: "ad-config" },
+            outputlocation : { value: "payload" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'font-awesome/fa-unlock-alt',
+        label: function () {
+            return this.name || "Active Directory"
+        },
+    });
+</script>
+
+<script type="text/html" data-template-name="active directory">
+    <div class="form-row">
+        <label for="node-input-name">Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-adConfig">Config</label>
+        <input type="text" id="node-input-adConfig" placeholder="adConfig">
+    </div>
+    <div class="form-row">
+        <label for="node-input-outputlocation">Output as</label>
+        <input type="text" id="node-input-outputlocation" placeholder="outputlocation">
+    </div>
+</script>

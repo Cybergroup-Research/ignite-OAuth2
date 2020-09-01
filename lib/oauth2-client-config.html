@@ -1,0 +1,72 @@
+<script type="text/javascript">
+    RED.nodes.registerType('oauth2-client-config', {
+        category: 'config',
+        color: '#3d7e9a',
+        defaults: {
+            name: { value: "" },
+            clientId: { value: "" },
+            redirectUrl: { value: "" },
+            authUrl: { value: "" },
+            accessTokenUrl: { value: "" },
+            scope: { value: "" },
+            state: { value: "" },
+            username: { value: "" },
+        },
+        credentials: {
+            password: { value: "" },
+            clientSecret: { value: "" },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'font-awesome/fa-unlock-alt',
+        label: function () {
+            return this.name || this.type;
+        }
+    });
+</script>
+<script type="text/html" data-template-name="oauth2-client-config">
+    <div class="form-row">
+        <label for="node-config-input-name">Name</label>
+        <input type="text" id="node-config-input-name" placeholder="name">
+    </div>
+    <!-- <div class="form-row">
+        <label for="node-config-input-grantType">Grant Type</label>
+        <input type="text" id="node-config-input-grantType" placeholder="grantType">
+    </div> -->
+    <div class="form-row">
+        <label for="node-config-input-clientId">Client Id</label>
+        <input type="text" id="node-config-input-clientId" placeholder="clientId">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-clientSecret">Client Secret</label>
+        <input type="password" id="node-config-input-clientSecret" placeholder="clientSecret">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-redirectUrl">Redirect Url</label>
+        <input type="text" id="node-config-input-redirectUrl" placeholder="redirectUrl">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-authUrl">Auth Url</label>
+        <input type="text" id="node-config-input-authUrl" placeholder="authUrl">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-accessTokenUrl">Access Token Url</label>
+        <input type="text" id="node-config-input-accessTokenUrl" placeholder="accessTokenUrl">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-scope">Scope</label>
+        <input type="text" id="node-config-input-scope" placeholder="scope">
+    </div>
+    <div class="form-row" style="display:none">
+        <label for="node-config-input-state">State</label>
+        <input type="text" id="node-config-input-state" placeholder="state">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-username">Username</label>
+        <input type="text" id="node-config-input-username" placeholder="username">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-password">Password</label>
+        <input type="password" id="node-config-input-password" placeholder="password">
+    </div>
+</script>
