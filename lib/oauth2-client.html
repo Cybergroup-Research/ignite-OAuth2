@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('oauth2 client', {
+    RED.nodes.registerType('oauth2', {
         category: 'security',
         color: '#3d7e9a',
         defaults: {
@@ -12,12 +12,12 @@
         outputs: 1,
         icon: 'font-awesome/fa-unlock-alt',
         label: function () {
-            return this.name || "oauth2 client"
+            return this.name || "oauth2"
         },
     });
 </script>
 
-<script type="text/html" data-template-name="oauth2 client">
+<script type="text/html" data-template-name="oauth2">
     <div class="form-row">
         <label for="node-input-name">Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
@@ -27,15 +27,33 @@
         <input type="text" id="node-input-auth2Config" placeholder="auth2Config">
     </div>
     <div class="form-row">
-        <label for="node-input-flow">Flow</label>
+        <label for="node-input-flow">Grant Type</label>
         <select type="select" id="node-input-flow" placeholder="flow">
-            <option value="usercredential">User Credential</option>
-            <option value="loginurl">Login Url</option>
-            <option value="gettoken">Get Token</option>
+            <option value="usercredential">Password</option>
+            <option value="loginurl">Authorization</option>
+            <option value="gettoken">Token</option>
         </select>
     </div>
     <div class="form-row">
-        <label for="node-input-outputlocation">Output as</label>
+        <label for="node-input-outputlocation">Property</label>
         <input type="text" id="node-input-outputlocation" placeholder="outputlocation">
     </div>
+    <div class="form-tips">
+        <p><b>Password:</b> The password type is a way to exchange a user's credentials for an access token.</p>
+        <p>Password can be configured under configuration or supplied via function node using <b>override</b> property</p>
+        <p>Example: <pre>
+            msg.override = {
+                'username':'<username>',
+                'password':'<password>'
+            }
+        </pre></p>
+        <p><b>Authorization:</b> The authorization type is used to get access code from Authorization server via third party login redirect.</p>
+        <p><b>Token:</b> The token type is used to get an access token from Token server in exchange of authorization code that the client previously received from Authorization mode/server</p>
+        <p><b>Property:</b> The node response in specified property field.</p>
+    </div>
+</script>
+<script type="text/html" data-help-name="oauth2">
+    <p>
+        OAuth2 is a Node for the OAuth 2.0 authorization framework. OAuth 2.0 is the industry-standard protocol for authorization, enabling third-party applications to obtain limited access to an HTTP service, either on behalf of a resource owner or by allowing the third-party application to obtain access on it's own behalf.
+    </p>
 </script>

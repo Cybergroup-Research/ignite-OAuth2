@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    RED.nodes.registerType('basic', {
+        category: 'security',
+        color: '#3d7e9a',
+        defaults: {
+            name: { value: "" },
+            basicconfig : { type: "basic-config" },
+            outputs: { value: 2}
+        },
+        inputs: 1,
+        outputs: 2,
+        outputLabels: ["Authorized", "Unauthorized"],
+        icon: 'font-awesome/fa-unlock-alt',
+        label: function () {
+            return this.name || "basic";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="basic">
+    <div class="form-row">
+        <label for="node-input-name">Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-basicconfig">Setting</label>
+        <input type="text" id="node-input-basicconfig" placeholder="Setting">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="basic">
+    <p>A node that provides basic security for your Ignite apps</p>
+</script>

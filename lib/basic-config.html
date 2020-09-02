@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    RED.nodes.registerType('basic-config', {
+        category: 'config',
+        color: '#3d7e9a',
+        defaults: {
+            name: { value: "" },
+            username: { value: "" },
+        },
+        credentials: {
+            password: { value: "" },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'font-awesome/fa-unlock-alt',
+        label: function () {
+            return this.name || "basic config";
+        }
+    });
+</script>
+<script type="text/html" data-template-name="basic-config">
+    <div class="form-row">
+        <label for="node-config-input-name">Name</label>
+        <input type="text" id="node-config-input-name" placeholder="name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-username">Username</label>
+        <input type="text" id="node-config-input-username" placeholder="username">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-password">Password</label>
+        <input type="password" id="node-config-input-password" placeholder="password">
+    </div>
+</script>

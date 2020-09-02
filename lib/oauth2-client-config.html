@@ -70,3 +70,22 @@
         <input type="password" id="node-config-input-password" placeholder="password">
     </div>
 </script>
+<script type="text/html" data-help-name="oauth2-client-config">
+    <p><b>Client Id</b></p>
+    <p>If the client is authenticating via HTTP Basic Auth or some other method, then this parameter is not required. Otherwise, this parameter is required.</p>
+    <p><b>Client Secret</b></p>
+    <p>If the client was issued a client secret, then the server must authenticate the client.</p>
+    <p><b>Redirect Url</b></p>
+    <p>If the redirect URI was included in the initial authorization request, the service must require it in the token request as well. The redirect URI in the token request must be an exact match of the redirect URI that was used when generating the authorization code. The service must reject the request otherwise.
+    </p>
+    <p><b>Auth Url</b></p>
+    <p>Authorization Server Url</p>
+    <p><b>Access Token Url</b></p>
+    <p>Token Server Url</p>
+    <p><b>Scope</b></p>
+    <p>The scope requested by the application</p>
+    <p><b>Username</b></p>
+    <p>The user’s username, required for grant type <b>password</b> only</p>
+    <p><b>Password</b></p>
+    <p>The user’s password, required for grant type <b>password</b> only</p>
+</script>
