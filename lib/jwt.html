@@ -1,10 +1,10 @@
 <script type="text/javascript">
-    RED.nodes.registerType('auth', {
+    RED.nodes.registerType('jwt', {
         category: 'security',
         color: '#3d7e9a',
         defaults: {
             name: { value: "" },
-            authconfig : { type: "auth-config" },
+            jwtconfig : { type: "jwt-config" },
             generatejwt : { value: false },
             outputs: { value: 2}
         },
@@ -13,7 +13,7 @@
         outputLabels: ["Authorized", "Unauthorized"],
         icon: 'font-awesome/fa-unlock-alt',
         label: function () {
-            return this.name;
+            return this.name || "jwt";
         },
         oneditsave : function () {
             this.generatejwt = $("#node-input-generatejwt").is(':checked');
@@ -29,14 +29,14 @@
     });
 </script>
 
-<script type="text/html" data-template-name="auth">
+<script type="text/html" data-template-name="jwt">
     <div class="form-row">
         <label for="node-input-name">Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-authconfig">Setting</label>
-        <input type="text" id="node-input-authconfig" placeholder="Setting">
+        <label for="node-input-jwtconfig">Setting</label>
+        <input type="text" id="node-input-jwtconfig" placeholder="Setting">
     </div>
     <div class="form-row">
         <input type="checkbox" id="node-input-generatejwt" style="display:inline; width:15px; vertical-align:baseline;">
@@ -45,6 +45,6 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="auth">
+<script type="text/html" data-help-name="jwt">
     <p>A node that provides security for your Ignite apps</p>
 </script>

@@ -1,10 +1,9 @@
 <script type="text/javascript">
-    RED.nodes.registerType('auth-config', {
+    RED.nodes.registerType('jwt-config', {
         category: 'config',
         color: '#3d7e9a',
         defaults: {
             name: { value: "" },
-            authType: { value: "Basic" },
             username: { value: "" },
             expiresin: { value: 86400 , validate:RED.validators.number()},
             algorithm: { value: "HS256" },
@@ -17,50 +16,26 @@
         outputs: 1,
         icon: 'font-awesome/fa-unlock-alt',
         label: function () {
-            return this.name || this.authType;
+            return this.name || "jwt";
         },
         oneditprepare: function () {
-            $("#node-config-input-authType").on("change", function () {
-                if ($("#node-config-input-authType").val() === "Basic"){
-                    $(".BasicAuthItem").show();
-                    $(".jwtItem").hide();
-                } else if ($("#node-config-input-authType").val() === "jwt"){
-                    $(".BasicAuthItem").hide();
-                    $(".jwtItem").show();
-                }
-            });
         }
     });
 </script>
-<script type="text/html" data-template-name="auth-config">
+<script type="text/html" data-template-name="jwt-config">
     <div class="form-row">
         <label for="node-config-input-name">Name</label>
         <input type="text" id="node-config-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-config-input-authType">Auth Type</label>
-        <select type="select" id="node-config-input-authType">
-            <option value="Basic">Basic Authentication</option>
-            <option value="jwt">JWT</option>
-        </select>
-    </div>
-    <div class="form-row BasicAuthItem">
-        <label for="node-config-input-username">Username</label>
-        <input type="text" id="node-config-input-username" placeholder="username">
-    </div>
-    <div class="form-row BasicAuthItem">
-        <label for="node-config-input-password">Password</label>
-        <input type="password" id="node-config-input-password" placeholder="password">
-    </div>
-    <div class="form-row jwtItem">
         <label for="node-config-input-tokensecret">Secret Key</label>
         <input type="password" id="node-config-input-tokensecret" placeholder="Secret Key">
     </div>
-    <div class="form-row jwtItem">
+    <div class="form-row">
         <label for="node-config-input-expiresin">Expires in (Second)</label>
         <input type="text" id="node-config-input-expiresin" placeholder="expires in">
     </div>
-    <div class="form-row jwtItem">
+    <div class="form-row">
         <label for="node-config-input-algorithm"><i class="icon-tag"></i><span>Algorithm</span></label>
         <select type="select" id="node-config-input-algorithm">
           <option value="HS256">HS256</option>

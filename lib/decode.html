@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    RED.nodes.registerType('decode', {
+        category: 'security',
+        color: '#3d7e9a',
+        defaults: {
+            name: { value: "" },
+            decodetype: { value: "JWT" },
+        },
+        inputs: 1,
+        outputs:1,
+        icon: 'font-awesome/fa-unlock-alt',
+        label: function () {
+            return this.name || "decode";
+        },
+    });
+</script>
+
+<script type="text/html" data-template-name="decode">
+    <div class="form-row">
+        <label for="node-input-name">Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-decodetype"><i class="icon-tag"></i><span>Type</span></label>
+        <select type="select" id="node-config-input-decodetype">
+          <option value="JWT">JWT</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="decode">
+    <p>A node that decode msg for your Ignite apps</p>
+</script>
