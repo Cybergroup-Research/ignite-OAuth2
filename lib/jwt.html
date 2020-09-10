@@ -5,7 +5,7 @@
         defaults: {
             name: { value: "" },
             jwtconfig : { type: "jwt-config" },
-            generatejwt : { value: false },
+            generatejwt : { value: 'false' },
             outputs: { value: 2}
         },
         inputs: 1,
@@ -39,12 +39,15 @@
         <input type="text" id="node-input-jwtconfig" placeholder="Setting">
     </div>
     <div class="form-row">
-        <input type="checkbox" id="node-input-generatejwt" style="display:inline; width:15px; vertical-align:baseline;">
-        <label for="node-input-generatejwt" style="display:inline;">Check the box to generate a jwt token otherwise it will validate the supplied jwt token</label>
+        <label for="node-input-generatejwt"><i class="icon-tag"></i><span>Mode</span></label>
+        <select type="select" id="node-input-generatejwt">
+          <option value="false">validate</option>
+          <option value="true">generate</option>
+        </select>
         <input type="hidden" id="node-input-outputs"/>
     </div>
 </script>
 
 <script type="text/html" data-help-name="jwt">
-    <p>JWT node can create a jwt token from msg.payload if Generate Token is checked, otherwise it'll verify a jwt from authorization headers of a request (msg.req.headers['authorization']).</p>
+    <p>jwt node can create a jwt token from msg.payload if mode is generate, otherwise it'll verify a jwt from authorization headers of a request (msg.req.headers['authorization']).</p>
 </script>

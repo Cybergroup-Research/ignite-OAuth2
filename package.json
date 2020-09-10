@@ -2,7 +2,7 @@
   "name": "@cgignite/ignite-auth",
   "node-red": {
     "nodes": {
-      "decode":"lib/decode.js",
+      "decode": "lib/decode.js",
       "jwt": "lib/jwt.js",
       "jwt-config": "lib/jwt-config.js",
       "basic": "lib/basic.js",
@@ -11,7 +11,7 @@
       "oauth2-client-config": "lib/oauth2-client-config.js"
     }
   },
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Auth node allows you to integrate security withing your Ignite APIs and apps",
   "scripts": {},
   "author": {
