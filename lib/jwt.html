@@ -16,7 +16,7 @@
             return this.name || "jwt";
         },
         oneditsave : function () {
-            this.generatejwt = $("#node-input-generatejwt").is(':checked');
+            this.generatejwt = $("#node-input-generatejwt").val() == "true";
             if(this.generatejwt)
             {
                 $("#node-input-outputs").val(JSON.stringify(1));
