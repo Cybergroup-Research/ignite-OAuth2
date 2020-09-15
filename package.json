@@ -12,7 +12,7 @@
       "oauth2-client-config": "lib/oauth2-client-config.js"
     }
   },
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Auth node allows you to integrate security withing your Ignite APIs and apps",
   "scripts": {},
   "author": {
