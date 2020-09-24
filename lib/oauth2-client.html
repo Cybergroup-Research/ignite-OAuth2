@@ -6,6 +6,7 @@
             name: { value: "" },
             auth2Config : { type: "oauth2-client-config" },
             flow: { value: "usercredential"},
+            authorizationMethod : { value: "header" },
             outputlocation : { value: "payload" }
         },
         inputs: 1,
@@ -32,6 +33,13 @@
             <option value="usercredential">Password</option>
             <option value="loginurl">Authorization</option>
             <option value="gettoken">Token</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-authorizationMethod">Authorization Method</label>
+        <select type="select" id="node-input-authorizationMethod" placeholder="authorizationMethod">
+            <option value="header">Header</option>
+            <option value="body">Body</option>
         </select>
     </div>
     <div class="form-row">
