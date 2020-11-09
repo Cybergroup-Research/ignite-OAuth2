@@ -1,0 +1,56 @@
+<script type="text/javascript">
+    RED.nodes.registerType('oauth1-client-config', {
+        category: 'config',
+        color: '#3d7e9a',
+        defaults: {
+            signaturemethod: { value: "hmac-sha1" },
+            realm: { value: "" },
+            consumerkey: { value: "" },
+            tokenid: { value: "" }
+        },
+        credentials: {
+            consumersecret: { value: "" },
+            tokensecret: { value: "" },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'font-awesome/fa-unlock-alt',
+        label: function () {
+            return this.name || this.type;
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="oauth1-client-config">
+    <div class="form-row">
+        <label for="node-config-input-signaturemethod"><i class="icon-tag"></i><span>Signature Method</span></label>
+        <select type="select" id="node-config-input-signaturemethod">
+          <option value="hmac-sha1">HMAC-SHA1</option>
+          <option value="hmac-sha256">HMAC-SHA256</option>
+          <option value="hmac-sha512">HMAC-SHA512</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-realm">Realm</label>
+        <input type="text" id="node-config-input-realm" placeholder="Realm">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-consumerkey">Consumer Key</label>
+        <input type="text" id="node-config-input-consumerkey" placeholder="Consumer Key">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-consumersecret">Consumer Secret</label>
+        <input type="password" id="node-config-input-consumersecret" placeholder="Consumer Secret">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-tokenid">Token Id</label>
+        <input type="text" id="node-config-input-tokenid" placeholder="Token Id">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-tokensecret">Token Secret</label>
+        <input type="password" id="node-config-input-tokensecret" placeholder="Token Secret">
+    </div>
+</script>
+<script type="text/html" data-help-name="oauth2-client-config">
+    <p><b>Client Id</b></p>
+</script>

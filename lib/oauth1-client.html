@@ -1,0 +1,39 @@
+<script type="text/javascript">
+    RED.nodes.registerType('oauth1', {
+        category: 'security',
+        color: '#3d7e9a',
+        defaults: {
+            name: { value: "" },
+            oauth1config : { type: "oauth1-client-config" },
+            appendto: { value: "requestheaders" },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'font-awesome/fa-unlock-alt',
+        label: function () {
+            return this.name || "oauth1";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="oauth1">
+    <div class="form-row">
+        <label for="node-input-name">Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-oauth1config">Setting</label>
+        <input type="text" id="node-input-oauth1config" placeholder="Setting">
+    </div>
+    <div class="form-row">
+        <label for="node-input-appendto"><i class="icon-tag"></i><span>Add auth data to</span></label>
+        <select type="select" id="node-input-appendto">
+          <option value="requestheaders">Request Headers</option>
+          <option value="requestbody">Request Body</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="oauth1">
+    <p>oAuth 1 node</p>
+</script>

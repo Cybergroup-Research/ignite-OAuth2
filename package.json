@@ -8,6 +8,8 @@
       "basic": "lib/basic.js",
       "basic-config": "lib/basic-config.js",
       "bcrypt": "lib/bcrypt.js",
+      "oauth1-client": "lib/oauth1-client.js",
+      "oauth1-client-config": "lib/oauth1-client-config.js",
       "oauth2-client": "lib/oauth2-client.js",
       "oauth2-client-config": "lib/oauth2-client-config.js"
     }
